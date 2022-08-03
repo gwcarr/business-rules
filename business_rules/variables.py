@@ -1,5 +1,6 @@
 import inspect
 from functools import wraps
+from datetime import date as DateType
 from .utils import fn_name_to_pretty_label
 from .operators import (BaseType,
                         NumericType,
@@ -53,6 +54,9 @@ def string_rule_variable(label=None):
 
 def boolean_rule_variable(label=None):
     return _rule_variable_wrapper(BooleanType, label)
+
+def datetime_rule_variable(label=None):
+    return _rule_variable_wrapper(DateType, label)
 
 def select_rule_variable(label=None, options=None):
     return rule_variable(SelectType, label=label, options=options)
